@@ -1,21 +1,28 @@
 <script setup lang="ts">
 
 import  WithTooltipVue from './components/CompWithTooltip.vue';
+
+const handleActive = () => {
+  console.log('foo')
+}
+
 </script>
 
 <template>
-  <v-app>
-    <v-main>
-      <v-container>
-        <WithTooltipVue>
-          <v-btn type="submit" color="primary" class="mb-4">
-            <v-tooltip activator="parent" location="top">Tooltip</v-tooltip>
-            Click me
-          </v-btn>
-        </WithTooltipVue>
-      </v-container>
-    </v-main>
-  </v-app>
+  <b>sdf</b>
+  <WithTooltipVue location="top">
+    <v-btn type="submit" color="primary" class="mb-4">
+      <v-tooltip activator="parent" location="top">Tooltip</v-tooltip>
+      Click me
+    </v-btn>
+  </WithTooltipVue>
+
+  <WithTooltipVue location="bottom">
+    <v-btn type="submit" color="primary" class="mb-4">
+      <v-tooltip activator="parent" location="bottom">Tooltip</v-tooltip>
+      Click me
+    </v-btn>
+  </WithTooltipVue>
 </template>
 
 

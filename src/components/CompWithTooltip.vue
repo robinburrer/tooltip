@@ -1,4 +1,11 @@
 <script setup lang="ts">
+
+interface Props {
+    location: string;
+}
+
+
+const porps = defineProps<Props>()
     console.log('foo')
 
 
@@ -16,7 +23,14 @@
 
         </slot>
 
-        <div class="nose">|</div>
+        <div :class="{ 'nose': true,
+        'nose-top': location === 'top',
+        'nose-bottom': location === 'bottom',
+        'nose-start': location === 'start',
+        'nose-end': location === 'end',
+
+  }">|</div>
+
 
     </div>
 </template>
@@ -30,9 +44,28 @@
 }
 
 .nose {
+
+    position: absolute;
+
+}
+
+.nose-top {
     top: -20px;
     left: 50%;
-    position: absolute;
-    color: red;
+}
+
+.nose-bottom {
+    bottom: 0px;
+    left: 50%;
+}
+
+.nose-start {
+    top: 50px;
+    left: 0;
+}
+
+.nose-end {
+    top: 50px;
+    right: 0;
 }
 </style>
