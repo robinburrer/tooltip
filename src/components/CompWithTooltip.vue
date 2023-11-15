@@ -1,12 +1,25 @@
 <script setup lang="ts">
 
+import {ref, watch, computed} from 'vue'
+
+
 interface Props {
-    location: string;
+    location: any;
+    tooltipLabel: string;
 }
-
-
 const porps = defineProps<Props>()
-    console.log('foo')
+
+
+const isTooltipActive = ref(false);
+
+watch(isTooltipActive, () => {
+  console.log('foo')
+})
+
+
+const showNose = ref(false)
+
+
 
 
 
@@ -16,14 +29,12 @@ const porps = defineProps<Props>()
 <template>
     <div class="base-container">
 
-
+        <v-tooltip :location="location" open-delay="200" activator="parent"
+            v-model="isTooltipActive">{{tooltipLabel}}</v-tooltip>
 
         <slot>
-
-
         </slot>
-
-        <div :class="{ 'nose': true,
+        <div v-if="isTooltipActive" :class="{ 'nose': true,
         'nose-top': location === 'top',
         'nose-bottom': location === 'bottom',
         'nose-start': location === 'start',
@@ -41,6 +52,7 @@ const porps = defineProps<Props>()
 
     position: relative;
     width: fit-content;
+    height: fit-content;
 }
 
 .nose {
@@ -55,7 +67,7 @@ const porps = defineProps<Props>()
 }
 
 .nose-bottom {
-    bottom: 0px;
+    bottom: -20px;
     left: 50%;
 }
 

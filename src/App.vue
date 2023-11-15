@@ -1,26 +1,26 @@
 <script setup lang="ts">
+import {ref, watch} from 'vue'
 
 import  WithTooltipVue from './components/CompWithTooltip.vue';
 
-const handleActive = () => {
-  console.log('foo')
-}
+
+
 
 </script>
 
 <template>
-  <b>sdf</b>
-  <WithTooltipVue location="top">
-    <v-btn type="submit" color="primary" class="mb-4">
-      <v-tooltip activator="parent" location="top">Tooltip</v-tooltip>
+  <br>
+  <br>
+  <WithTooltipVue location="top" tooltip-label="top">
+    <v-btn type="submit" color="primary">
       Click me
     </v-btn>
   </WithTooltipVue>
+  <br>
+  <WithTooltipVue location="bottom" tooltip-label="bottom 2">
+    <v-btn type="submit" color="primary">
 
-  <WithTooltipVue location="bottom">
-    <v-btn type="submit" color="primary" class="mb-4">
-      <v-tooltip activator="parent" location="bottom">Tooltip</v-tooltip>
-      Click me
+      Click me 2
     </v-btn>
   </WithTooltipVue>
 </template>
