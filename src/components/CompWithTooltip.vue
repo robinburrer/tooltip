@@ -7,19 +7,9 @@ interface Props {
     location: any;
     tooltipLabel: string;
 }
-const porps = defineProps<Props>()
-
+defineProps<Props>()
 
 const isTooltipActive = ref(false);
-
-watch(isTooltipActive, () => {
-  console.log('foo')
-})
-
-
-const showNose = ref(false)
-
-
 
 
 
@@ -29,18 +19,19 @@ const showNose = ref(false)
 <template>
     <div class="base-container">
 
-        <v-tooltip :location="location" open-delay="200" activator="parent"
+        <v-tooltip :location="location" open-delay="200" activator="parent" open-on-click
             v-model="isTooltipActive">{{tooltipLabel}}</v-tooltip>
 
         <slot>
         </slot>
+
         <div v-if="isTooltipActive" :class="{ 'nose': true,
         'nose-top': location === 'top',
         'nose-bottom': location === 'bottom',
         'nose-start': location === 'start',
         'nose-end': location === 'end',
 
-  }">|</div>
+  }"></div>
 
 
     </div>
@@ -56,19 +47,27 @@ const showNose = ref(false)
 }
 
 .nose {
-
     position: absolute;
+
+
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #424242;
+    /* Adjust color as needed */
 
 }
 
 .nose-top {
-    top: -20px;
-    left: 50%;
+    top: -10px;
+    left: calc(50% - 8px);
+    transform: rotate(180deg);
 }
 
 .nose-bottom {
-    bottom: -20px;
-    left: 50%;
+    bottom: -10px;
+    left: calc(50% - 8px);
 }
 
 .nose-start {

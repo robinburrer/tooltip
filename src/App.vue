@@ -17,11 +17,18 @@ import  WithTooltipVue from './components/CompWithTooltip.vue';
     </v-btn>
   </WithTooltipVue>
   <br>
-  <WithTooltipVue location="bottom" tooltip-label="bottom 2">
+  <WithTooltipVue location="bottom" tooltip-label="Click me 2 Click me 2 Click me 2">
     <v-btn type="submit" color="primary">
-
       Click me 2
     </v-btn>
+  </WithTooltipVue>
+
+  <br>
+  <WithTooltipVue location="bottom" tooltip-label="all red">
+    <div style="background-color: red; width: 300px">
+      red div
+    </div>
+
   </WithTooltipVue>
 </template>
 
