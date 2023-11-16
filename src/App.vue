@@ -4,8 +4,6 @@ import {ref, watch} from 'vue'
 import  WithTooltipVue from './components/CompWithTooltip.vue';
 
 
-
-
 </script>
 
 <template>

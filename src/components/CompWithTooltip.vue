@@ -25,11 +25,12 @@ const isTooltipActive = ref(false);
         <slot>
         </slot>
 
-        <div v-if="isTooltipActive" :class="{ 'nose': true,
-        'nose-top': location === 'top',
-        'nose-bottom': location === 'bottom',
-        'nose-start': location === 'start',
-        'nose-end': location === 'end',
+        <div :class="{ 'triangle': true,
+        'triangle--visible': isTooltipActive,
+        'triangle--top': location === 'top',
+        'triangle--bottom': location === 'bottom',
+        'triangle--start': location === 'start',
+        'triangle--end': location === 'end',
 
   }"></div>
 
@@ -46,36 +47,39 @@ const isTooltipActive = ref(false);
     height: fit-content;
 }
 
-.nose {
+.triangle {
     position: absolute;
-
-
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #424242;
-    /* Adjust color as needed */
-
 }
 
-.nose-top {
+.triangle--visible {
+    opacity: 1;
+}
+
+.triangle--top {
+
     top: -10px;
     left: calc(50% - 8px);
     transform: rotate(180deg);
 }
 
-.nose-bottom {
+.triangle--bottom {
     bottom: -10px;
     left: calc(50% - 8px);
 }
 
-.nose-start {
+.triangle--start {
     top: 50px;
     left: 0;
 }
 
-.nose-end {
+.triangle--end {
     top: 50px;
     right: 0;
 }
