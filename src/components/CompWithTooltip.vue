@@ -1,7 +1,5 @@
 <script setup lang="ts">
-
 import {ref, watch, computed} from 'vue'
-
 
 interface Props {
     location: any;
@@ -10,11 +8,7 @@ interface Props {
 defineProps<Props>()
 
 const isTooltipActive = ref(false);
-
-
-
 </script>
-
 
 <template>
     <div class="base-container">
@@ -31,17 +25,13 @@ const isTooltipActive = ref(false);
         'triangle--bottom': location === 'bottom',
         'triangle--start': location === 'start',
         'triangle--end': location === 'end',
-
-  }"></div>
-
-
+        }"></div>
     </div>
 </template>
 
 
 <style scoped>
 .base-container {
-
     position: relative;
     width: fit-content;
     height: fit-content;
